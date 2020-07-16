@@ -21,6 +21,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>F3B0FB36-705F-4062-8EDF-9D208DAB51A3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D4D010A1-9218-4DE0-B969-19E384A28B80</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Milan Aleksić</string>
@@ -32,6 +45,50 @@
 	<string>DNS</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>dnsset</string>
+				<key>subtext</key>
+				<string>Example: "dnsset home 192.168.1.1"</string>
+				<key>text</key>
+				<string>Add DNS server</string>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>F3B0FB36-705F-4062-8EDF-9D208DAB51A3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python dns.py --new-dns {query}</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>D4D010A1-9218-4DE0-B969-19E384A28B80</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -112,16 +169,30 @@
 		<key>27FD6A0C-0E22-4D1D-BBF5-D49DCA7D5B46</key>
 		<dict>
 			<key>xpos</key>
-			<integer>440</integer>
+			<integer>435</integer>
 			<key>ypos</key>
-			<integer>225</integer>
+			<integer>230</integer>
 		</dict>
 		<key>5A162BC4-453A-40F8-95DE-35473738E69B</key>
 		<dict>
 			<key>xpos</key>
-			<integer>890</integer>
+			<integer>895</integer>
 			<key>ypos</key>
 			<integer>230</integer>
+		</dict>
+		<key>D4D010A1-9218-4DE0-B969-19E384A28B80</key>
+		<dict>
+			<key>xpos</key>
+			<integer>895</integer>
+			<key>ypos</key>
+			<integer>55</integer>
+		</dict>
+		<key>F3B0FB36-705F-4062-8EDF-9D208DAB51A3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>435</integer>
+			<key>ypos</key>
+			<integer>55</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
