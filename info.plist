@@ -7,7 +7,21 @@
 	<key>category</key>
 	<string>Internet</string>
 	<key>connections</key>
-	<dict/>
+	<dict>
+		<key>27FD6A0C-0E22-4D1D-BBF5-D49DCA7D5B46</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>5A162BC4-453A-40F8-95DE-35473738E69B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
 	<key>createdby</key>
 	<string>Milan Aleksić</string>
 	<key>description</key>
@@ -30,11 +44,11 @@
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
-				<string>dns2</string>
+				<string>dns</string>
 				<key>queuedelaycustom</key>
 				<integer>3</integer>
 				<key>queuedelayimmediatelyinitially</key>
@@ -67,6 +81,29 @@
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>python dns.py "{query}"</string>
+				<key>scriptargtype</key>
+				<integer>0</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>5A162BC4-453A-40F8-95DE-35473738E69B</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
@@ -78,6 +115,13 @@
 			<integer>440</integer>
 			<key>ypos</key>
 			<integer>225</integer>
+		</dict>
+		<key>5A162BC4-453A-40F8-95DE-35473738E69B</key>
+		<dict>
+			<key>xpos</key>
+			<integer>890</integer>
+			<key>ypos</key>
+			<integer>230</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
