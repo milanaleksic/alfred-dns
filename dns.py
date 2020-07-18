@@ -8,17 +8,42 @@ from workflow import Workflow, ICON_WEB, ICON_WARNING
 log = None
 
 
+class ConfigHandler:
+
+    def __init__(self, wf):
+        self._wf = wf
+
+    def set(self, dns, query):
+        configs = self._ensure_configs()
+        configs[dns] = query
+        self._wf.settings['configs'] = configs
+
+    def get(self, query):
+        configs = self._ensure_configs()
+        return configs.get(query, None)
+
+    def configs(self):
+        return self._ensure_configs()
+
+    def _ensure_configs(self):
+        current_configs = self._wf.settings.get('configs', None)
+        if current_configs is None:
+            self._wf.settings['configs'] = {}
+        return self._wf.settings['configs']
+
+
 def main(wf):
     parser = argparse.ArgumentParser()
     parser.add_argument('--new-dns', dest='dns', nargs='?', default=None)
     parser.add_argument('query', nargs='?', default=None)
     args = parser.parse_args(wf.args)
     query = args.query
+    config = ConfigHandler(wf)
     if args.dns:
-        wf.settings[args.dns] = query
+        config.set(args.dns, query)
         return 0
     if query is not None:
-        dns = wf.settings.get(query, None)
+        dns = config.get(query)
         if dns is None:
             wf.add_item('No DNS server set',
                         'Please use dnsset to add your Pinboard API key.',
@@ -33,9 +58,10 @@ def main(wf):
         returned_output = subprocess.check_output(["dscacheutil", "-flushcache"])
         log.debug("output of flush cache: %s" % returned_output)
     else:
-        for k in wf.settings.keys():
+        log.info("configs=" + str(config.configs()))
+        for k in config.configs().keys():
             wf.add_item(title="Use %s setup" % k,
-                        subtitle="Server %s will be used" % (wf.settings[k]),
+                        subtitle="Server %s will be used" % (config.configs()[k]),
                         arg=k,
                         valid=True,
                         icon=ICON_WEB)
